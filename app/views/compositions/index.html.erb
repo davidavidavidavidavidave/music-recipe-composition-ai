@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Compositions</h1>
+
+<div id="compositions">
+  <% @compositions.each do |composition| %>
+    <%= render composition %>
+    <p>
+      <%= link_to "Show this composition", composition %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New composition", new_composition_path %>

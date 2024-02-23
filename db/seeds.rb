@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Composition.destroy_all
+
+Composition.create(name: "Haribo Harmony Groove", instruments: "piano ukele vocals and guitar", description: "style or mood deep funky classical. it also has a drone, major 7th chords and haribo sweets")
