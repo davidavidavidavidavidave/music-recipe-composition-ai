@@ -4,4 +4,6 @@ class PagesController < ApplicationController
 
   def index
     @composition = Composition.all
+  end
+  
 end
