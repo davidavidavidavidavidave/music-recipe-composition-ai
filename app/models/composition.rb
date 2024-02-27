@@ -1,6 +1,7 @@
 class Composition < ApplicationRecord
+after_save :set_content, if: -> { saved_change_to_instruments? || saved_change_to_description? }
 
-  def content
+def content
     if super.blank?
       set_content
     else
