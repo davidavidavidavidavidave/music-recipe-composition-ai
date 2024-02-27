@@ -8,6 +8,15 @@ class CompositionsController < ApplicationController
 
   # GET /compositions/1
   def show
+    client = OpenAI::Client.new
+    response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [{
+        role: "user",
+        content: "Give me a music composition with instruments #{@composition.instruments}. It has musical elements #{@composition.description}. identify the chords and melody notes and the rhythm values (like crotchets and quavers etc.). Give it a title"
+        }]
+    })
+    @content = response["choices"][0]["message"]["content"]
   end
 
   # GET /compositions/new
