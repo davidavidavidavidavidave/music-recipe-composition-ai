@@ -13,6 +13,7 @@
     <strong>Description:</strong>
     <%= composition.description %>
   </p>
+    <%= cl_image_tag composition.photo.key, alt: "AI-generated image of your composition" if composition.photo.attached? %>
   <p>
     <strong>Content:</strong>
     <%= composition.content %>
