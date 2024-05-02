@@ -1,11 +1,41 @@
 <p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8">
 
-<%= render @composition %>
+      <div class="card-trip">
+        <div class="row">
+          <div class="col-md-6"> <!-- Image column -->
+            <div class="card-trip-img">
+              <%= cl_image_tag @composition.photo.key, alt: "AI-generated image of your composition", class: "img-fluid" if @composition.photo.attached? %>
+            </div>
+            <div style="display: flex; padding-top: 9px;">
+              <%= link_to "Edit", edit_composition_path(@composition), class: "btn btn-primary", style: "flex: 1; margin-right: 5px; width: calc(50% - 2.5px);" %>
+              <%= link_to "Delete", @composition, method: :delete, class: "btn btn-primary", style: "flex: 1; margin-left: 5px; width: calc(50% - 2.5px);" %>
+            </div>
+          </div>
+          <div class="col-md-6"> <!-- Text column -->
+            <div class="card-trip-infos">
+              <h2><%= @composition.name %> </h2>
+              <p> <strong>Instruments:</strong> <%= @composition.instruments %></p>
+              <p><strong>Description:</strong> <%= @composition.description %></p>
+              <br>
+              <em>..a more detailed description....</em>
+              <br>
+              <small><% @composition.content.each_line do |line| %>
+                  <% if line.match?(/^([\w\s]+):/) %>
+                    <strong><%= line.chomp.gsub(/:$/, '') %>:</strong><br>
+                  <% else %>
+                    <%= line.chomp %><br>
+                  <% end %>
+                <% end %>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-<div>
-  <%= link_to "Edit this composition", edit_composition_path(@composition) %> |
-  <%= link_to "Back to compositions", compositions_path %>
-
-  <%= button_to "Destroy this composition", @composition, method: :delete %>
+    </div>
+  </div>
 </div>

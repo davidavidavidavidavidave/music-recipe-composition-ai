@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
+<%# <div class="container"> %>
 
-<h1>Compositions</h1>
+  <%# <div class="row justify-content-center">
+    <div class="col-12 col-sm-8"> %>
+      <h1 class="composition-heading" data-controller="textmove" style="padding: 24px;">COMPOSITIONS</h1>
+  <div class="content">
+      <div id="compositions" class="cards">
+        <% @compositions.each do |composition| %>
+          <%= render composition %>
 
-<div id="compositions">
-  <% @compositions.each do |composition| %>
-    <%= render composition %>
-    <p>
-      <%= link_to "Show this composition", composition %>
-    </p>
-  <% end %>
-</div>
+        <% end %>
+      </div>
+      <div class="form-login">
+      <!-- Insert form here -->
+      <h1>..create a composition..</h1>
 
-<%= link_to "New composition", new_composition_path %>
+      <%= render "form", composition: @composition %>
+      <div>
+  </div>
+    <%# </div>
+  </div> %>
+
+<%# </div> %>

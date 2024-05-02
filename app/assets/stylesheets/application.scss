@@ -10,3 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show";
+@import "components/navbar";
+
+@keyframes moveLeftToRight {
+  0%, 100% {
+    transform: translateX(calc(-100% + 24px)); /* Start and end position */
+  }
+  50% {
+    transform: translateX(calc(100% - 24px)); /* Middle position */
+  }
+}
+
+.move-left-to-right {
+  animation: moveLeftToRight 10s ease-in-out infinite alternate; /* Alternate direction */
+  animation-timing-function: linear; /* Optional: linear timing function */
+  display: flex;
+  justify-content: center; /* Horizontally center the text */
+  align-items: center; /* Vertically center the text */
+}

@@ -1,9 +1,18 @@
-<h1>Create a new composition:</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="form-login">
+      <!-- Insert form here -->
+      <h1>..create a composition..</h1>
 
-<%= render "form", composition: @composition %>
+      <%= render "form", composition: @composition %>
 
-<br>
+      <br>
 
-<div>
-  <%= link_to "Back to compositions", compositions_path %>
+      <div>
+        <%= link_to "Back to compositions", compositions_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

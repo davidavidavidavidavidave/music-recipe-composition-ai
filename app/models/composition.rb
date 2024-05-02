@@ -2,10 +2,11 @@ require "open-uri"
 
 class Composition < ApplicationRecord
 after_save if: -> { saved_change_to_name? || saved_change_to_instruments? || saved_change_to_description? } do
-  set_content
   set_photo
+  # set_video
 end
 has_one_attached :photo
+# has_one_attached :video
 
 def content
   if super.blank?
@@ -35,7 +36,7 @@ end
   def set_photo
     client = OpenAI::Client.new
     response = client.images.generate(parameters: {
-      prompt: "Give me an image like an album cover for a music song called #{self.name}, that uses instruments like #{self.instruments} and has musical elements #{self.description}",
+      prompt: "Give me an image like an album cover for a music song called #{self.name}, that uses instruments like #{self.instruments} and has musical elements #{self.description}. Ensure the artwork does not have a black background or black border",
       size: "256x256"
     })
     id = response["data"][0]["id"]
@@ -48,4 +49,22 @@ end
     return photo
 
   end
+
+  # def set_video
+  #   client = OpenAI::Client.new
+  #   response = client.audio.speech(
+  #     parameters: {
+  #       model: "tts-1",
+  #       input: "#{self.content}",
+  #       voice: "alloy"
+  #     }
+  #   )
+  #   File.binwrite('demo.mp3', response)
+  #   video.purge if video.attached?
+  #   video.attach(io: file, filename: "#{self.name}.mp3", content_type: "video/mp3")
+
+  #   return video
+  #   # => mp3 file that plays: "This is a speech test!"
+  # end
+
 end

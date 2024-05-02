@@ -4,11 +4,12 @@ class CompositionsController < ApplicationController
   # GET /compositions
   def index
     @compositions = Composition.all
+    @composition = Composition.new 
   end
 
   # GET /compositions/1
   def show
-    
+    @composition = Composition.find(params[:id])
   end
 
   # GET /compositions/new
