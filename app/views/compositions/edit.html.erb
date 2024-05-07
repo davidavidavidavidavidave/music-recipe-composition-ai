@@ -7,4 +7,5 @@
 <div>
   <%= link_to "Show this composition", @composition %> |
   <%= link_to "Back to compositions", compositions_path %>
+  <%= button_to "Delete", @composition, method: :delete, class: "btn btn-primary", style: "flex: 1; margin-left: 5px; width: calc(50% - 2.5px);" %>
 </div>

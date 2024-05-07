@@ -20,6 +20,7 @@
               <p> <strong>Instruments:</strong> <%= @composition.instruments %></p>
               <p><strong>Description:</strong> <%= @composition.description %></p>
               <br>
+              <div class="container">
               <em>..a more detailed description....</em>
               <br>
               <small><% @composition.content.each_line do |line| %>
@@ -30,6 +31,7 @@
                   <% end %>
                 <% end %>
               </small>
+              </div>
             </div>
           </div>
         </div>

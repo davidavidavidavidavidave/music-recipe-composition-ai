@@ -1,24 +1,7 @@
 <div id="<%= dom_id composition %>">
-
   <div class="card">
-  <%= link_to composition_path(composition) do %>
-    <%= cl_image_tag composition.photo.key, alt: "AI-generated image of your composition" if composition.photo.attached? %>
-  <% end %>
-</div>
-<%# <%= cl_image_tag composition.video.key, alt: "AI-generated audio of your composition" if composition.video.attached? %>
-
-    <%# <h2>Name: <%= composition.name %>
-    <%# <br>
-    <p> <strong>Instruments:</strong>
-      <%= composition.instruments %>
-    <%# <br>
-    <p>
-      <strong>Description:</strong>
-      <%= composition.description %>
-    <%# </p>
-    <br> %>
-  <%# <p>
-    <%= link_to "Show this composition", composition, class: "btn btn-primary" %>
-  <%# </p> %>
-
+    <%= link_to composition_path(composition) do %>
+      <%= cl_image_tag composition.photo.key, alt: "AI-generated image of your composition" if composition.photo.attached? %>
+    <% end %>
+  </div>
 </div>
